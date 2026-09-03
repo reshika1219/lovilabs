@@ -98,16 +98,17 @@ export default function ServicesPage() {
         <div className="container">
           <div className="services-full-grid">
             {SERVICES.map((service, i) => (
-              <ScrollReveal key={service.title} delay={0.05 + i * 0.08} direction="up">
-                <ServiceCard
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  deliverables={service.deliverables}
-                  index={i}
-                />
-              </ScrollReveal>
+              <ServiceCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                deliverables={service.deliverables}
+                index={i}
+              />
             ))}
+            {/* Empty filler square to maintain grid */}
+            <div className="service-card" style={{ background: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 11px)' }}></div>
           </div>
         </div>
       </section>
@@ -129,16 +130,14 @@ export default function ServicesPage() {
               { step: '03', title: 'Develop', desc: 'We build with clean code, modern tools, and a focus on performance.' },
               { step: '04', title: 'Deliver', desc: 'We test, launch, and provide ongoing support to ensure success.' },
             ].map((item, i) => (
-              <ScrollReveal key={item.step} delay={0.15 + i * 0.12} direction="left">
-                <div className="process-step">
-                  <div className="process-step__number">{item.step}</div>
-                  <div className="process-step__content">
-                    <h3 className="process-step__title">{item.title}</h3>
-                    <p className="process-step__desc">{item.desc}</p>
-                  </div>
-                  {i < 3 && <div className="process-step__connector" />}
+              <div className="process-step" key={item.step}>
+                <div className="process-step__number">{item.step}</div>
+                <div className="process-step__content">
+                  <h3 className="process-step__title">{item.title}</h3>
+                  <p className="process-step__desc">{item.desc}</p>
                 </div>
-              </ScrollReveal>
+                {i < 3 && <div className="process-step__connector" />}
+              </div>
             ))}
           </div>
         </div>
