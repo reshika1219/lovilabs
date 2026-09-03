@@ -1,0 +1,193 @@
+/* ============================================
+   About Page Styles
+   ============================================ */
+
+/* Hero */
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--space-4xl);
+}
+
+.about-hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-hero__circle {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  right: -100px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle, rgba(0, 48, 135, 0.04) 0%, transparent 60%);
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+}
+
+.about-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.about-hero__title {
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin-bottom: var(--space-lg);
+}
+
+.about-hero__subtitle {
+  font-size: var(--text-body-lg);
+  color: var(--color-dark-gray);
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+/* Section title reuse */
+.section__title {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin-bottom: var(--space-sm);
+}
+
+.section__subtitle {
+  font-size: var(--text-body-lg);
+  color: var(--color-mid-gray);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+}
+
+/* Mission */
+.about-mission {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.about-mission__text h2 {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  color: var(--color-black);
+  margin-bottom: var(--space-lg);
+  line-height: 1.3;
+}
+
+.about-mission__text p {
+  font-size: var(--text-body-lg);
+  color: var(--color-dark-gray);
+  line-height: 1.8;
+}
+
+/* Values */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.value-card {
+  padding: var(--space-2xl);
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--duration-normal) ease,
+              box-shadow var(--duration-normal) ease,
+              transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.value-card:hover {
+  border-color: rgba(0, 48, 135, 0.15);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.value-card__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--gradient-brand-subtle);
+  color: var(--color-navy);
+  margin-bottom: var(--space-md);
+}
+
+.value-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.value-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--color-black);
+  margin-bottom: var(--space-xs);
+}
+
+.value-card__desc {
+  font-size: var(--text-small);
+  color: var(--color-mid-gray);
+  line-height: 1.7;
+}
+
+/* Philosophy */
+.about-philosophy {
+  text-align: center;
+}
+
+.about-philosophy__title {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin-bottom: var(--space-2xl);
+  line-height: 1.3;
+}
+
+.about-philosophy__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2xl);
+  text-align: left;
+}
+
+.about-philosophy__item h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--color-black);
+  margin-bottom: var(--space-xs);
+}
+
+.about-philosophy__item p {
+  font-size: var(--text-small);
+  color: var(--color-mid-gray);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-mission {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-philosophy__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}

@@ -1,0 +1,381 @@
+/* ============================================
+   LOVI LABS — Design System & Global Styles
+   ============================================ */
+
+/* --- CSS Custom Properties --- */
+:root {
+  /* Colors */
+  --color-white: #FFFFFF;
+  --color-off-white: #FAFAFA;
+  --color-light-gray: #F0F0F0;
+  --color-mid-gray: #888888;
+  --color-dark-gray: #333333;
+  --color-charcoal: #1A1A1A;
+  --color-black: #0A0A0A;
+  --color-navy: #003087;
+  --color-blue: #0055CC;
+  --color-cyan: #00BFFF;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #003087, #00BFFF);
+  --gradient-brand-horizontal: linear-gradient(90deg, #003087, #00BFFF);
+  --gradient-brand-subtle: linear-gradient(135deg, rgba(0, 48, 135, 0.08), rgba(0, 191, 255, 0.08));
+  --gradient-dark: linear-gradient(180deg, #0A0A0A, #1A1A1A);
+
+  /* Typography */
+  --font-heading: var(--font-outfit), 'Outfit', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
+
+  --text-display: clamp(3rem, 8vw, 7rem);
+  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --text-h2: clamp(2rem, 4vw, 3.5rem);
+  --text-h3: clamp(1.5rem, 3vw, 2rem);
+  --text-h4: clamp(1.25rem, 2vw, 1.5rem);
+  --text-body: clamp(1rem, 1.2vw, 1.125rem);
+  --text-body-lg: clamp(1.125rem, 1.5vw, 1.25rem);
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-overline: 0.6875rem;
+
+  /* Font Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 8rem;
+  --space-5xl: 12rem;
+
+  /* Borders & Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 40px rgba(0, 48, 135, 0.15);
+  --shadow-glow-cyan: 0 0 40px rgba(0, 191, 255, 0.15);
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+  --duration-slower: 800ms;
+  --duration-slowest: 1200ms;
+
+  /* Layout */
+  --max-width: 1400px;
+  --max-width-narrow: 1000px;
+  --max-width-wide: 1600px;
+  --nav-height: 80px;
+  --section-padding: clamp(4rem, 10vh, 8rem);
+}
+
+/* --- CSS Reset --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.7;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Show default cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  a {
+    cursor: pointer;
+  }
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: none;
+  outline: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  button {
+    cursor: pointer;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+h4 { font-size: var(--text-h4); }
+
+p {
+  line-height: 1.7;
+  color: var(--color-dark-gray);
+}
+
+::selection {
+  background: rgba(0, 48, 135, 0.15);
+  color: var(--color-navy);
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-mid-gray);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-navy);
+}
+
+/* --- Container --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.container--narrow {
+  max-width: var(--max-width-narrow);
+}
+
+.container--wide {
+  max-width: var(--max-width-wide);
+}
+
+/* --- Section --- */
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+.section--dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.section--dark p {
+  color: var(--color-mid-gray);
+}
+
+.section--gray {
+  background-color: var(--color-off-white);
+}
+
+/* --- Overline Text --- */
+.overline {
+  font-family: var(--font-body);
+  font-size: var(--text-overline);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.overline::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--gradient-brand-horizontal);
+}
+
+/* --- Gradient Text --- */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Divider --- */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-light-gray);
+  border: none;
+}
+
+.divider--gradient {
+  background: var(--gradient-brand-horizontal);
+  height: 2px;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* --- Page Transition --- */
+.page-content {
+  animation: fadeUp 0.6s var(--ease-out-expo) forwards;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+    --section-padding: clamp(3rem, 8vh, 5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: clamp(2.5rem, 6vh, 4rem);
+  }
+}
