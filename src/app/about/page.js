@@ -72,6 +72,9 @@ export default function AboutPage() {
             <ScrollReveal direction="left">
               <div className="about-mission__label">
                 <span className="overline">Our Mission</span>
+                <div className="about-mission__image-container">
+                  <Image src="/assets/about-hero.jpg" alt="Lovi Labs Team" fill style={{ objectFit: 'cover' }} />
+                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.2} direction="right">
@@ -82,11 +85,6 @@ export default function AboutPage() {
                 <p>
                   By combining technology, creativity, and strategy, we create solutions that are functional, engaging, and tailored to each client&apos;s needs. From designing intuitive user experiences to building scalable web solutions, Lovi Labs brings technology and creativity together under one roof.
                 </p>
-                <ScrollReveal delay={0.4} direction="up">
-                  <div className="about-mission__image-container">
-                    <Image src="/assets/about-hero.jpg" alt="Lovi Labs Team" fill style={{ objectFit: 'cover' }} />
-                  </div>
-                </ScrollReveal>
               </div>
             </ScrollReveal>
           </div>

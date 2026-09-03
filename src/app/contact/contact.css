@@ -8,6 +8,7 @@
   overflow: hidden;
   border-bottom: 1px solid var(--color-black);
   padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
 }
 
 .contact-hero__bg {
@@ -50,7 +51,7 @@
 
 /* Contact Section */
 .contact-section {
-  padding-top: 0;
+  padding-top: var(--space-4xl);
 }
 
 /* Layout */
