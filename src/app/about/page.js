@@ -2,6 +2,7 @@
 import AnimatedText from '@/components/AnimatedText';
 import ScrollReveal from '@/components/ScrollReveal';
 import Button from '@/components/Button';
+import Image from 'next/image';
 import './about.css';
 
 const VALUES = [
@@ -84,6 +85,12 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
           </div>
+          
+          <ScrollReveal delay={0.4} direction="up">
+            <div className="about-mission__image-container">
+              <Image src="/assets/about-hero.jpg" alt="Lovi Labs Team" fill style={{ objectFit: 'cover' }} />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -112,6 +119,18 @@ export default function AboutPage() {
                 </div>
               </ScrollReveal>
             ))}
+            
+            {/* Image Boxes for Brutalist Layout */}
+            <ScrollReveal delay={0.5} direction="up">
+              <div className="value-card value-card--image">
+                <Image src="/assets/about-grid-1.jpg" alt="Minimalist Art" fill style={{ objectFit: 'cover' }} />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.6} direction="up">
+              <div className="value-card value-card--image">
+                <Image src="/assets/about-grid-2.jpg" alt="Abstract Office" fill style={{ objectFit: 'cover' }} />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

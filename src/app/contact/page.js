@@ -2,6 +2,7 @@
 import ScrollReveal from '@/components/ScrollReveal';
 import AnimatedText from '@/components/AnimatedText';
 import ContactForm from '@/components/ContactForm';
+import Image from 'next/image';
 
 import './contact.css';
 
@@ -142,11 +143,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Decorative */}
-              <div className="contact-deco">
-                <div
-                  className="contact-deco__circle"
-                />
+              {/* Decorative Image */}
+              <div className="contact-image-container" style={{ position: 'relative', width: '100%', aspectRatio: '1/1', marginTop: 'var(--space-2xl)', border: '1px solid var(--color-black)' }}>
+                <Image src="/assets/contact-bg.jpg" alt="Contact Lovi Labs" fill style={{ objectFit: 'cover', filter: 'grayscale(100%)' }} />
               </div>
             </ScrollReveal>
           </div>

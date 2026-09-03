@@ -3,6 +3,7 @@ import AnimatedText from '@/components/AnimatedText';
 import ScrollReveal from '@/components/ScrollReveal';
 import ServiceCard from '@/components/ServiceCard';
 import Button from '@/components/Button';
+import Image from 'next/image';
 import './services.css';
 
 const SERVICES = [
@@ -71,7 +72,8 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="services-hero section">
         <div className="services-hero__bg">
-          <div className="services-hero__circle" />
+          <Image src="/assets/services-hero.jpg" alt="Digital Matrix" fill style={{ objectFit: 'cover' }} priority />
+          <div className="services-hero__overlay"></div>
         </div>
         <div className="container services-hero__content">
           <ScrollReveal>

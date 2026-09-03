@@ -10,22 +10,35 @@
   border-bottom: 1px solid var(--color-black);
 }
 
+.services-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.services-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
 .services-hero__content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 700px;
 }
 
 .services-hero__title {
   font-size: var(--text-h1);
   font-weight: var(--weight-bold);
-  color: var(--color-black);
+  color: var(--color-white);
   margin-bottom: var(--space-lg);
 }
 
 .services-hero__subtitle {
   font-size: var(--text-body-lg);
-  color: var(--color-dark-gray);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.8;
   max-width: 560px;
 }
@@ -76,7 +89,7 @@
   color: var(--color-black);
   line-height: 1;
   flex-shrink: 0;
-  width: 50px;
+  min-width: 80px;
 }
 
 .process-step__title {

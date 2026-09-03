@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Button from '@/components/Button';
 import './home.css';
 
@@ -34,6 +35,14 @@ export default function HomePage() {
       <section className="hero-brutalist">
         <div className="hero-brutalist__grid">
           <div className="hero-brutalist__col hero-brutalist__col--left">
+            <Image 
+              src="/assets/home-hero.jpg" 
+              alt="Lovi Labs Architecture" 
+              fill 
+              style={{ objectFit: 'cover' }} 
+              priority 
+            />
+            <div className="hero-brutalist__overlay"></div>
             <h1 className="hero-brutalist__title">LOVI<br/>LABS.</h1>
           </div>
           <div className="hero-brutalist__col hero-brutalist__col--right">
@@ -100,10 +109,17 @@ export default function HomePage() {
 
       {/* ============ CTA BANNER ============ */}
       <section className="cta-brutalist">
-        <h2 className="cta-brutalist__title">READY?</h2>
+        <Image 
+          src="/assets/home-cta.jpg" 
+          alt="Ready to start" 
+          fill 
+          style={{ objectFit: 'cover' }} 
+        />
+        <div className="cta-brutalist__overlay"></div>
+        <h2 className="cta-brutalist__title" style={{ color: 'white' }}>READY?</h2>
         <div className="cta-brutalist__buttons">
           <Button href="/contact" variant="primary" size="large">Contact Us</Button>
-          <Button href="https://wa.me/94717995000" variant="outline" size="large" target="_blank" rel="noopener noreferrer">WhatsApp</Button>
+          <Button href="https://wa.me/94717995000" variant="outline" size="large" target="_blank" rel="noopener noreferrer" style={{ color: 'white', borderColor: 'white' }}>WhatsApp</Button>
         </div>
       </section>
     </div>

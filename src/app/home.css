@@ -32,21 +32,35 @@
 }
 
 .hero-brutalist__col--left {
+  position: relative;
   border-right: 1px solid var(--color-black);
   justify-content: center;
+  overflow: hidden;
+}
+
+.hero-brutalist__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 .hero-brutalist__col--right {
   justify-content: center;
   background: var(--color-off-white);
+  position: relative;
+  z-index: 2;
 }
 
 .hero-brutalist__title {
+  position: relative;
+  z-index: 2;
   font-size: var(--text-display);
   line-height: 0.9;
   font-weight: var(--weight-bold);
   text-transform: uppercase;
   letter-spacing: -0.04em;
+  color: var(--color-white);
 }
 
 .hero-brutalist__meta {
@@ -222,6 +236,7 @@
 
 /* --- CTA Brutalist --- */
 .cta-brutalist {
+  position: relative;
   padding: var(--space-4xl) var(--space-2xl);
   display: flex;
   flex-direction: column;
@@ -229,9 +244,19 @@
   justify-content: center;
   text-align: center;
   min-height: 50vh;
+  overflow: hidden;
+}
+
+.cta-brutalist__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 
 .cta-brutalist__title {
+  position: relative;
+  z-index: 2;
   font-size: var(--text-display);
   font-weight: var(--weight-extrabold);
   margin-bottom: var(--space-xl);
@@ -239,6 +264,8 @@
 }
 
 .cta-brutalist__buttons {
+  position: relative;
+  z-index: 2;
   display: flex;
   gap: var(--space-md);
 }
