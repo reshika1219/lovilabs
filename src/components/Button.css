@@ -7,19 +7,18 @@
   font-weight: var(--weight-medium);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border-radius: 6px;
+  border-radius: 0; /* Sharp corners */
   text-decoration: none;
   cursor: pointer;
   transition: background-color var(--duration-fast) ease,
               color var(--duration-fast) ease,
-              border-color var(--duration-fast) ease,
-              transform 100ms ease;
+              border-color var(--duration-fast) ease;
   position: relative;
   overflow: hidden;
 }
 
 .btn:active {
-  transform: scale(0.98);
+  transform: translateY(1px);
 }
 
 .btn__text {
@@ -29,26 +28,26 @@
 
 /* Primary variant */
 .btn--primary {
-  background-color: var(--color-navy);
-  color: var(--color-white);
-  border: 1px solid var(--color-navy);
-}
-
-.btn--primary:hover {
-  background-color: var(--color-black);
-  border-color: var(--color-black);
-}
-
-/* Secondary variant */
-.btn--secondary {
   background-color: var(--color-black);
   color: var(--color-white);
   border: 1px solid var(--color-black);
 }
 
+.btn--primary:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Secondary variant */
+.btn--secondary {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+}
+
 .btn--secondary:hover {
-  background-color: var(--color-navy);
-  border-color: var(--color-navy);
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 /* Outline variant */
@@ -66,14 +65,14 @@
 /* Ghost variant */
 .btn--ghost {
   background-color: transparent;
-  color: var(--color-navy);
+  color: var(--color-black);
   border: 1px solid transparent;
   padding-left: 0;
   padding-right: 0;
 }
 
 .btn--ghost:hover {
-  color: var(--color-black);
+  opacity: 0.7;
 }
 
 /* White variant (for dark backgrounds) */
@@ -84,8 +83,9 @@
 }
 
 .btn--white:hover {
-  background-color: var(--color-off-white);
-  color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-white);
 }
 
 /* Sizes */

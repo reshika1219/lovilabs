@@ -9,23 +9,7 @@
   padding-top: var(--space-4xl);
 }
 
-.about-hero__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
 
-.about-hero__circle {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: -100px;
-  right: -100px;
-  border-radius: var(--radius-full);
-  background: radial-gradient(circle, rgba(0, 48, 135, 0.04) 0%, transparent 60%);
-  will-change: transform;
-  transition: transform 0.3s ease-out;
-}
 
 .about-hero__content {
   position: relative;
@@ -95,17 +79,16 @@
 .value-card {
   padding: var(--space-2xl);
   background: var(--color-white);
-  border: 1px solid var(--color-light-gray);
-  border-radius: var(--radius-lg);
-  transition: border-color var(--duration-normal) ease,
-              box-shadow var(--duration-normal) ease,
-              transform var(--duration-normal) var(--ease-out-expo);
+  border: 1px solid var(--color-black);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
 }
 
 .value-card:hover {
-  border-color: rgba(0, 48, 135, 0.15);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 .value-card__icon {
@@ -114,10 +97,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-md);
-  background: var(--gradient-brand-subtle);
-  color: var(--color-navy);
+  color: var(--color-black);
   margin-bottom: var(--space-md);
+}
+
+.value-card:hover .value-card__icon {
+  color: var(--color-white);
 }
 
 .value-card__icon svg {
@@ -127,15 +112,15 @@
 
 .value-card__title {
   font-family: var(--font-heading);
-  font-size: var(--text-h4);
+  font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
-  color: var(--color-black);
+  color: inherit;
   margin-bottom: var(--space-xs);
 }
 
 .value-card__desc {
   font-size: var(--text-small);
-  color: var(--color-mid-gray);
+  color: inherit;
   line-height: 1.7;
 }
 

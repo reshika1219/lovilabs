@@ -57,9 +57,9 @@
 }
 
 .contact-info {
-  background: var(--color-off-white);
-  border: 1px solid var(--color-light-gray);
-  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: 0;
   padding: var(--space-2xl);
   position: relative;
   overflow: hidden;
@@ -93,13 +93,25 @@
   align-items: center;
   gap: var(--space-md);
   padding: var(--space-md);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   text-decoration: none;
-  transition: background var(--duration-fast) ease;
+  border: 1px solid transparent;
+  transition: all var(--duration-fast) ease;
 }
 
 .contact-method:hover {
-  background: rgba(0, 48, 135, 0.04);
+  border-color: var(--color-black);
+  background: var(--color-black);
+}
+
+.contact-method:hover .contact-method__icon {
+  background: transparent;
+  color: var(--color-white);
+}
+
+.contact-method:hover .contact-method__label,
+.contact-method:hover .contact-method__value {
+  color: var(--color-white);
 }
 
 .contact-method__icon {
@@ -108,10 +120,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-md);
-  background: var(--gradient-brand-subtle);
-  color: var(--color-navy);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
   flex-shrink: 0;
+  transition: all var(--duration-fast) ease;
 }
 
 .contact-method__icon svg {
@@ -163,22 +177,17 @@
   align-items: center;
   gap: var(--space-xs);
   padding: var(--space-xs) var(--space-md);
-  border: 1px solid var(--color-light-gray);
-  border-radius: var(--radius-full);
+  border: 1px solid var(--color-black);
+  border-radius: 0;
   font-size: var(--text-small);
-  color: var(--color-dark-gray);
+  color: var(--color-black);
   text-decoration: none;
-  transition: border-color var(--duration-fast) ease,
-              color var(--duration-fast) ease,
-              background var(--duration-fast) ease,
-              transform var(--duration-normal) var(--ease-out-expo);
+  transition: all var(--duration-fast) ease;
 }
 
 .contact-social-link:hover {
-  border-color: var(--color-navy);
-  color: var(--color-navy);
-  background: rgba(0, 48, 135, 0.04);
-  transform: translateY(-2px);
+  background: var(--color-black);
+  color: var(--color-white);
 }
 
 .contact-social-link svg {
@@ -186,25 +195,7 @@
   height: 16px;
 }
 
-/* Decorative */
-.contact-deco {
-  position: absolute;
-  top: 0;
-  right: -100px;
-  width: 300px;
-  height: 300px;
-  pointer-events: none;
-  z-index: -1;
-}
 
-.contact-deco__circle {
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-full);
-  background: radial-gradient(circle, rgba(0, 191, 255, 0.06) 0%, transparent 60%);
-  will-change: transform;
-  transition: transform 0.3s ease-out;
-}
 
 /* Responsive */
 @media (max-width: 1024px) {

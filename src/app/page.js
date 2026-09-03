@@ -1,61 +1,17 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import AnimatedText from '@/components/AnimatedText';
-import ScrollReveal from '@/components/ScrollReveal';
 import Button from '@/components/Button';
 import './home.css';
 
 const SERVICES_PREVIEW = [
-  {
-    title: 'Web Development',
-    desc: 'Scalable, performant websites built with modern technologies.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8" /><path d="M12 17v4" /></svg>
-    ),
-  },
-  {
-    title: 'Web Applications',
-    desc: 'Custom web apps that solve real business problems.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
-    ),
-  },
-  {
-    title: 'UI/UX Design',
-    desc: 'Intuitive interfaces that delight users and drive engagement.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg>
-    ),
-  },
-  {
-    title: 'Social Media Marketing',
-    desc: 'Strategic campaigns to build your digital brand presence.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" /></svg>
-    ),
-  },
-  {
-    title: 'AI Solutions',
-    desc: 'Intelligent systems that automate and enhance workflows.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 014 4v1a1 1 0 001 1h1a4 4 0 010 8h-1a1 1 0 00-1 1v1a4 4 0 01-8 0v-1a1 1 0 00-1-1H6a4 4 0 010-8h1a1 1 0 001-1V6a4 4 0 014-4z" /></svg>
-    ),
-  },
-  {
-    title: 'Digital Strategy',
-    desc: 'Data-driven plans to accelerate your digital growth.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
-    ),
-  },
-  {
-    title: 'POS Systems',
-    desc: 'Streamlined point-of-sale solutions for modern businesses.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /></svg>
-    ),
-  },
+  { title: 'Web Development', desc: 'Scalable, performant websites built with modern technologies.', code: '01' },
+  { title: 'Web Applications', desc: 'Custom web apps that solve real business problems.', code: '02' },
+  { title: 'UI/UX Design', desc: 'Intuitive interfaces that delight users and drive engagement.', code: '03' },
+  { title: 'Social Media Marketing', desc: 'Strategic campaigns to build your digital brand presence.', code: '04' },
+  { title: 'AI Solutions', desc: 'Intelligent systems that automate and enhance workflows.', code: '05' },
+  { title: 'Digital Strategy', desc: 'Data-driven plans to accelerate your digital growth.', code: '06' },
+  { title: 'POS Systems', desc: 'Streamlined point-of-sale solutions for modern businesses.', code: '07' },
 ];
 
 const PILLARS = [
@@ -65,155 +21,89 @@ const PILLARS = [
 ];
 
 export default function HomePage() {
-  const heroRef = useRef(null);
-  const [heroLoaded, setHeroLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setHeroLoaded(true), 200);
-    return () => clearTimeout(timer);
+    setLoaded(true);
   }, []);
 
   return (
-    <div className="page-content">
+    <div className={`page-content page-editorial ${loaded ? 'is-loaded' : ''}`}>
+      
       {/* ============ HERO ============ */}
-      <section className="hero" ref={heroRef}>
-        <div className="hero__bg-elements">
-          <div className="hero__circle hero__circle--1" />
-          <div className="hero__circle hero__circle--2" />
-          <div className="hero__circle hero__circle--3" />
-        </div>
-
-        <div className="hero__content container">
-          <div className={`hero__logo-mark ${heroLoaded ? 'hero__logo-mark--visible' : ''}`}>
-            <img
-              src="/assets/ICON - FULL COLOR.png"
-              alt=""
-              className="hero__logo-icon"
-            />
+      <section className="hero-brutalist">
+        <div className="hero-brutalist__grid">
+          <div className="hero-brutalist__col hero-brutalist__col--left">
+            <h1 className="hero-brutalist__title">LOVI<br/>LABS.</h1>
           </div>
-
-          <AnimatedText
-            text="LOVI LABS"
-            tag="h1"
-            type="words"
-            stagger={0.02}
-            delay={0.4}
-            className="hero__title"
-          />
-
-          <div className={`hero__tagline ${heroLoaded ? 'hero__tagline--visible' : ''}`}>
-            <p>Building digital experiences through</p>
-            <p className="hero__tagline-highlight">Web, Marketing, Design & AI</p>
-          </div>
-
-          <div className={`hero__cta ${heroLoaded ? 'hero__cta--visible' : ''}`}>
-            <Button href="/contact" variant="primary" size="large">
-              Start Your Project
-            </Button>
-            <Button href="/services" variant="outline" size="large">
-              Our Services
-            </Button>
-          </div>
-        </div>
-
-        <div className="hero__scroll-indicator">
-          <span className="hero__scroll-text">Scroll</span>
-          <div className="hero__scroll-line" />
-        </div>
-      </section>
-
-      {/* ============ SERVICES PREVIEW ============ */}
-      <section className="section section--gray" id="services-preview">
-        <div className="container">
-          <ScrollReveal>
-            <span className="overline">What We Do</span>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h2 className="section__title">Crafting Digital Excellence</h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <p className="section__subtitle">
-              From concept to launch, we deliver comprehensive digital solutions that transform businesses.
+          <div className="hero-brutalist__col hero-brutalist__col--right">
+            <div className="hero-brutalist__meta">
+              <span className="hero-brutalist__meta-label">Est. 2026</span>
+              <span className="hero-brutalist__meta-label">Global</span>
+            </div>
+            <p className="hero-brutalist__desc">
+              Building digital experiences through<br/>
+              <strong>Web, Marketing, Design & AI</strong>.
             </p>
-          </ScrollReveal>
-
-          <div className="services-grid">
-            {SERVICES_PREVIEW.map((service, i) => (
-              <ScrollReveal key={service.title} delay={0.1 + i * 0.08} direction="up">
-                <Link href="/services" className="service-preview-card" data-cursor-hover>
-                  <div className="service-preview-card__icon">{service.icon}</div>
-                  <h3 className="service-preview-card__title">{service.title}</h3>
-                  <p className="service-preview-card__desc">{service.desc}</p>
-                  <span className="service-preview-card__arrow">→</span>
-                </Link>
-              </ScrollReveal>
-            ))}
+            <div className="hero-brutalist__cta">
+              <Button href="/contact" variant="primary" size="large">Start Project</Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ============ WHY US ============ */}
-      <section className="section" id="why-us">
-        <div className="container">
-          <div className="why-us">
-            <div className="why-us__header">
-              <ScrollReveal>
-                <span className="overline">Why Lovi Labs</span>
-              </ScrollReveal>
-              <ScrollReveal delay={0.1}>
-                <h2 className="section__title">Built Different.</h2>
-              </ScrollReveal>
-              <ScrollReveal delay={0.2}>
-                <p className="section__subtitle">
-                  We combine technology, creativity, and strategy to create solutions that are functional, engaging, and tailored to your needs.
-                </p>
-              </ScrollReveal>
-            </div>
+      {/* ============ SERVICES ============ */}
+      <section className="section-grid">
+        <div className="section-grid__header">
+          <h2 className="section-grid__title">Capabilities</h2>
+          <Link href="/services" className="section-grid__link">View All [↗]</Link>
+        </div>
+        
+        <div className="grid-squares">
+          {SERVICES_PREVIEW.map((service) => (
+            <Link key={service.code} href="/services" className="square-card">
+              <div className="square-card__top">
+                <span className="square-card__code">[{service.code}]</span>
+                <span className="square-card__arrow">↗</span>
+              </div>
+              <div className="square-card__bottom">
+                <h3 className="square-card__title">{service.title}</h3>
+                <p className="square-card__desc">{service.desc}</p>
+              </div>
+            </Link>
+          ))}
+          {/* Empty filler square to maintain grid */}
+          <div className="square-card square-card--empty"></div>
+        </div>
+      </section>
 
-            <div className="why-us__pillars">
-              {PILLARS.map((pillar, i) => (
-                <ScrollReveal key={pillar.number} delay={0.15 + i * 0.15} direction="left">
-                  <div className="pillar" data-cursor-hover>
-                    <span className="pillar__number">{pillar.number}</span>
-                    <div className="pillar__content">
-                      <h3 className="pillar__title">{pillar.title}</h3>
-                      <p className="pillar__desc">{pillar.desc}</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+      {/* ============ PILLARS ============ */}
+      <section className="section-grid section-grid--dark">
+        <div className="section-grid__header">
+          <h2 className="section-grid__title">Our Approach</h2>
+        </div>
+        
+        <div className="grid-squares">
+          {PILLARS.map((pillar) => (
+            <div key={pillar.number} className="square-card square-card--dark">
+              <div className="square-card__top">
+                <span className="square-card__code">[{pillar.number}]</span>
+              </div>
+              <div className="square-card__bottom">
+                <h3 className="square-card__title">{pillar.title}</h3>
+                <p className="square-card__desc">{pillar.desc}</p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* ============ CTA BANNER ============ */}
-      <section className="cta-banner section--dark">
-        <div className="cta-banner__bg">
-          <div className="cta-banner__circle" />
-        </div>
-        <div className="container cta-banner__content">
-          <ScrollReveal>
-            <h2 className="cta-banner__title">
-              Ready to build something<br />
-              <span className="gradient-text">extraordinary?</span>
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <p className="cta-banner__text">
-              Let&apos;s transform your vision into a digital experience that stands out.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.3}>
-            <div className="cta-banner__buttons">
-              <Button href="/contact" variant="white" size="large">
-                Get a Free Consultation
-              </Button>
-              <Button href="https://wa.me/94717995000" variant="ghost" size="large" className="cta-banner__wa" target="_blank" rel="noopener noreferrer">
-                WhatsApp Us
-              </Button>
-            </div>
-          </ScrollReveal>
+      <section className="cta-brutalist">
+        <h2 className="cta-brutalist__title">READY?</h2>
+        <div className="cta-brutalist__buttons">
+          <Button href="/contact" variant="primary" size="large">Contact Us</Button>
+          <Button href="https://wa.me/94717995000" variant="outline" size="large" target="_blank" rel="noopener noreferrer">WhatsApp</Button>
         </div>
       </section>
     </div>

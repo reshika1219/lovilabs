@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Button from './Button';
 import './Navbar.css';
 
 const NAV_LINKS = [
@@ -70,9 +71,9 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Link href="/contact" className="navbar__cta">
+          <Button href="/contact" variant="primary" size="small" className="navbar__cta">
             Start Your Project
-          </Link>
+          </Button>
 
           <button
             className={`navbar__hamburger ${isMobileOpen ? 'navbar__hamburger--open' : ''}`}
