@@ -2,7 +2,7 @@
 import ScrollReveal from '@/components/ScrollReveal';
 import AnimatedText from '@/components/AnimatedText';
 import ContactForm from '@/components/ContactForm';
-import useMousePosition from '@/hooks/useMousePosition';
+
 import './contact.css';
 
 const CONTACT_METHODS = [
@@ -56,7 +56,6 @@ const SOCIAL_LINKS = [
 ];
 
 export default function ContactPage() {
-  const { normalized } = useMousePosition();
 
   return (
     <div className="page-content">
@@ -111,7 +110,7 @@ export default function ContactPage() {
                       className="contact-method"
                       target={method.external ? '_blank' : undefined}
                       rel={method.external ? 'noopener noreferrer' : undefined}
-                      data-cursor-hover
+
                     >
                       <div className="contact-method__icon">{method.icon}</div>
                       <div>
@@ -133,7 +132,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         className="contact-social-link"
                         aria-label={social.label}
-                        data-cursor-hover
+
                       >
                         {social.icon}
                         <span>{social.label}</span>
@@ -147,9 +146,6 @@ export default function ContactPage() {
               <div className="contact-deco">
                 <div
                   className="contact-deco__circle"
-                  style={{
-                    transform: `translate(${normalized.x * 15}px, ${normalized.y * 15}px)`,
-                  }}
                 />
               </div>
             </ScrollReveal>

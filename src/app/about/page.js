@@ -1,8 +1,7 @@
 'use client';
 import AnimatedText from '@/components/AnimatedText';
 import ScrollReveal from '@/components/ScrollReveal';
-import MagneticButton from '@/components/MagneticButton';
-import useMousePosition from '@/hooks/useMousePosition';
+import Button from '@/components/Button';
 import './about.css';
 
 const VALUES = [
@@ -37,19 +36,13 @@ const VALUES = [
 ];
 
 export default function AboutPage() {
-  const { normalized } = useMousePosition();
 
   return (
     <div className="page-content">
       {/* Hero */}
       <section className="about-hero section">
         <div className="about-hero__bg">
-          <div
-            className="about-hero__circle"
-            style={{
-              transform: `translate(${normalized.x * 30}px, ${normalized.y * 30}px)`,
-            }}
-          />
+          <div className="about-hero__circle" />
         </div>
         <div className="container about-hero__content">
           <ScrollReveal>
@@ -112,7 +105,7 @@ export default function AboutPage() {
           <div className="values-grid">
             {VALUES.map((value, i) => (
               <ScrollReveal key={value.title} delay={0.1 + i * 0.1} direction="up">
-                <div className="value-card" data-cursor-hover>
+                <div className="value-card">
                   <div className="value-card__icon">{value.icon}</div>
                   <h3 className="value-card__title">{value.title}</h3>
                   <p className="value-card__desc">{value.desc}</p>
@@ -153,9 +146,9 @@ export default function AboutPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.4}>
             <div style={{ marginTop: 'var(--space-2xl)' }}>
-              <MagneticButton href="/contact" variant="primary" size="large">
+              <Button href="/contact" variant="primary" size="large">
                 Work With Us
-              </MagneticButton>
+              </Button>
             </div>
           </ScrollReveal>
         </div>

@@ -2,8 +2,7 @@
 import AnimatedText from '@/components/AnimatedText';
 import ScrollReveal from '@/components/ScrollReveal';
 import ServiceCard from '@/components/ServiceCard';
-import MagneticButton from '@/components/MagneticButton';
-import useMousePosition from '@/hooks/useMousePosition';
+import Button from '@/components/Button';
 import './services.css';
 
 const SERVICES = [
@@ -66,19 +65,13 @@ const SERVICES = [
 ];
 
 export default function ServicesPage() {
-  const { normalized } = useMousePosition();
 
   return (
     <div className="page-content">
       {/* Hero */}
       <section className="services-hero section">
         <div className="services-hero__bg">
-          <div
-            className="services-hero__circle"
-            style={{
-              transform: `translate(${normalized.x * 25}px, ${normalized.y * 25}px)`,
-            }}
-          />
+          <div className="services-hero__circle" />
         </div>
         <div className="container services-hero__content">
           <ScrollReveal>
@@ -137,7 +130,7 @@ export default function ServicesPage() {
               { step: '04', title: 'Deliver', desc: 'We test, launch, and provide ongoing support to ensure success.' },
             ].map((item, i) => (
               <ScrollReveal key={item.step} delay={0.15 + i * 0.12} direction="left">
-                <div className="process-step" data-cursor-hover>
+                <div className="process-step">
                   <div className="process-step__number">{item.step}</div>
                   <div className="process-step__content">
                     <h3 className="process-step__title">{item.title}</h3>
@@ -165,9 +158,9 @@ export default function ServicesPage() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <MagneticButton href="/contact" variant="white" size="large">
+            <Button href="/contact" variant="white" size="large">
               Get a Free Consultation
-            </MagneticButton>
+            </Button>
           </ScrollReveal>
         </div>
       </section>

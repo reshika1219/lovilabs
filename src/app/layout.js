@@ -2,7 +2,6 @@ import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CustomCursor from '@/components/CustomCursor';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -38,7 +37,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
-        <CustomCursor />
         <Navbar />
         <main style={{ paddingTop: 'var(--nav-height)' }}>
           {children}

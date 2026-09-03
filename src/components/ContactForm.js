@@ -112,7 +112,7 @@ export default function ContactForm() {
         type="submit"
         className={`contact-form__submit ${status === 'sending' ? 'contact-form__submit--sending' : ''} ${status === 'sent' ? 'contact-form__submit--sent' : ''}`}
         disabled={status === 'sending'}
-        data-cursor-hover
+       
       >
         <span className="contact-form__submit-text">
           {status === 'idle' && 'Send Message'}

@@ -1,31 +1,20 @@
 'use client';
 import ScrollReveal from '@/components/ScrollReveal';
 import AnimatedText from '@/components/AnimatedText';
-import MagneticButton from '@/components/MagneticButton';
-import useMousePosition from '@/hooks/useMousePosition';
+import Button from '@/components/Button';
 import './portfolio.css';
 
 export default function PortfolioPage() {
-  const { normalized } = useMousePosition();
 
   return (
     <div className="page-content">
       <section className="portfolio-hero">
         <div className="portfolio-hero__bg">
-          <div
-            className="portfolio-hero__icon"
-            style={{
-              transform: `translate(${normalized.x * 20}px, ${normalized.y * 20}px) rotate(${normalized.x * 8}deg)`,
-            }}
-          >
+          <div className="portfolio-hero__icon">
             <img src="/assets/ICON - FULL COLOR.png" alt="" />
           </div>
-          <div className="portfolio-hero__circle portfolio-hero__circle--1"
-            style={{ transform: `translate(${normalized.x * -15}px, ${normalized.y * -15}px)` }}
-          />
-          <div className="portfolio-hero__circle portfolio-hero__circle--2"
-            style={{ transform: `translate(${normalized.x * 12}px, ${normalized.y * 12}px)` }}
-          />
+          <div className="portfolio-hero__circle portfolio-hero__circle--1" />
+          <div className="portfolio-hero__circle portfolio-hero__circle--2" />
         </div>
 
         <div className="container portfolio-hero__content">
@@ -35,8 +24,8 @@ export default function PortfolioPage() {
           <AnimatedText
             text="Our Work"
             tag="h1"
-            type="chars"
-            stagger={0.06}
+            type="words"
+            stagger={0.03}
             delay={0.2}
             className="portfolio-hero__title"
           />
@@ -58,9 +47,9 @@ export default function PortfolioPage() {
               <p style={{ color: 'var(--color-mid-gray)', marginBottom: 'var(--space-md)' }}>
                 Want to be the first to see our work?
               </p>
-              <MagneticButton href="/contact" variant="primary" size="default">
+              <Button href="/contact" variant="primary" size="default">
                 Get in Touch
-              </MagneticButton>
+              </Button>
             </div>
           </ScrollReveal>
         </div>

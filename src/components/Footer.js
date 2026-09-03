@@ -81,7 +81,7 @@ export default function Footer() {
               <ul className="footer__column-links">
                 {FOOTER_LINKS.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="footer__link" data-cursor-hover>
+                    <Link href={link.href} className="footer__link">
                       {link.label}
                     </Link>
                   </li>
@@ -92,10 +92,10 @@ export default function Footer() {
             <div className="footer__column">
               <h4 className="footer__column-title">Services</h4>
               <ul className="footer__column-links">
-                <li><Link href="/services" className="footer__link" data-cursor-hover>Web Development</Link></li>
-                <li><Link href="/services" className="footer__link" data-cursor-hover>UI/UX Design</Link></li>
-                <li><Link href="/services" className="footer__link" data-cursor-hover>AI Solutions</Link></li>
-                <li><Link href="/services" className="footer__link" data-cursor-hover>Digital Strategy</Link></li>
+                <li><Link href="/services" className="footer__link">Web Development</Link></li>
+                <li><Link href="/services" className="footer__link">UI/UX Design</Link></li>
+                <li><Link href="/services" className="footer__link">AI Solutions</Link></li>
+                <li><Link href="/services" className="footer__link">Digital Strategy</Link></li>
               </ul>
             </div>
 
@@ -103,12 +103,12 @@ export default function Footer() {
               <h4 className="footer__column-title">Get in Touch</h4>
               <ul className="footer__column-links">
                 <li>
-                  <a href="mailto:lovilabsco@gmail.com" className="footer__link" data-cursor-hover>
+                  <a href="mailto:lovilabsco@gmail.com" className="footer__link">
                     lovilabsco@gmail.com
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/94717995000" className="footer__link" data-cursor-hover target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/94717995000" className="footer__link" target="_blank" rel="noopener noreferrer">
                     WhatsApp
                   </a>
                 </li>

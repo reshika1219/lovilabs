@@ -1,7 +1,7 @@
 'use client';
 import ScrollReveal from '@/components/ScrollReveal';
 import AnimatedText from '@/components/AnimatedText';
-import MagneticButton from '@/components/MagneticButton';
+import Button from '@/components/Button';
 import './team.css';
 
 const PLACEHOLDER_TEAM = [
@@ -42,7 +42,7 @@ export default function TeamPage() {
           <div className="team-grid">
             {PLACEHOLDER_TEAM.map((member, i) => (
               <ScrollReveal key={i} delay={0.1 + i * 0.1} direction="up">
-                <div className="team-card" data-cursor-hover>
+                <div className="team-card">
                   <div className="team-card__photo">
                     <span className="team-card__initials">{member.initials}</span>
                   </div>
@@ -67,9 +67,9 @@ export default function TeamPage() {
                 <p className="team-cta__text">
                   Interested in joining our team? We&apos;re always looking for talented individuals who are passionate about technology and creativity.
                 </p>
-                <MagneticButton href="/contact" variant="primary" size="default">
+                <Button href="/contact" variant="primary" size="default">
                   Get in Touch
-                </MagneticButton>
+                </Button>
               </div>
             </div>
           </ScrollReveal>

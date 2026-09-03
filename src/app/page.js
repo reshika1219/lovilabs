@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import AnimatedText from '@/components/AnimatedText';
 import ScrollReveal from '@/components/ScrollReveal';
-import MagneticButton from '@/components/MagneticButton';
-import useMousePosition from '@/hooks/useMousePosition';
+import Button from '@/components/Button';
 import './home.css';
 
 const SERVICES_PREVIEW = [
@@ -66,7 +65,6 @@ const PILLARS = [
 ];
 
 export default function HomePage() {
-  const { normalized } = useMousePosition();
   const heroRef = useRef(null);
   const [heroLoaded, setHeroLoaded] = useState(false);
 
@@ -80,24 +78,9 @@ export default function HomePage() {
       {/* ============ HERO ============ */}
       <section className="hero" ref={heroRef}>
         <div className="hero__bg-elements">
-          <div
-            className="hero__circle hero__circle--1"
-            style={{
-              transform: `translate(${normalized.x * 20}px, ${normalized.y * 20}px)`,
-            }}
-          />
-          <div
-            className="hero__circle hero__circle--2"
-            style={{
-              transform: `translate(${normalized.x * -15}px, ${normalized.y * -15}px)`,
-            }}
-          />
-          <div
-            className="hero__circle hero__circle--3"
-            style={{
-              transform: `translate(${normalized.x * 10}px, ${normalized.y * 10}px)`,
-            }}
-          />
+          <div className="hero__circle hero__circle--1" />
+          <div className="hero__circle hero__circle--2" />
+          <div className="hero__circle hero__circle--3" />
         </div>
 
         <div className="hero__content container">
@@ -106,17 +89,14 @@ export default function HomePage() {
               src="/assets/ICON - FULL COLOR.png"
               alt=""
               className="hero__logo-icon"
-              style={{
-                transform: `translate(${normalized.x * 8}px, ${normalized.y * 8}px) rotate(${normalized.x * 5}deg)`,
-              }}
             />
           </div>
 
           <AnimatedText
             text="LOVI LABS"
             tag="h1"
-            type="chars"
-            stagger={0.05}
+            type="words"
+            stagger={0.02}
             delay={0.4}
             className="hero__title"
           />
@@ -127,12 +107,12 @@ export default function HomePage() {
           </div>
 
           <div className={`hero__cta ${heroLoaded ? 'hero__cta--visible' : ''}`}>
-            <MagneticButton href="/contact" variant="primary" size="large">
+            <Button href="/contact" variant="primary" size="large">
               Start Your Project
-            </MagneticButton>
-            <MagneticButton href="/services" variant="outline" size="large">
+            </Button>
+            <Button href="/services" variant="outline" size="large">
               Our Services
-            </MagneticButton>
+            </Button>
           </div>
         </div>
 
@@ -210,12 +190,7 @@ export default function HomePage() {
       {/* ============ CTA BANNER ============ */}
       <section className="cta-banner section--dark">
         <div className="cta-banner__bg">
-          <div
-            className="cta-banner__circle"
-            style={{
-              transform: `translate(${normalized.x * 25}px, ${normalized.y * 25}px)`,
-            }}
-          />
+          <div className="cta-banner__circle" />
         </div>
         <div className="container cta-banner__content">
           <ScrollReveal>
@@ -231,12 +206,12 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
             <div className="cta-banner__buttons">
-              <MagneticButton href="/contact" variant="white" size="large">
+              <Button href="/contact" variant="white" size="large">
                 Get a Free Consultation
-              </MagneticButton>
-              <MagneticButton href="https://wa.me/94717995000" variant="ghost" size="large" className="cta-banner__wa" target="_blank" rel="noopener noreferrer">
+              </Button>
+              <Button href="https://wa.me/94717995000" variant="ghost" size="large" className="cta-banner__wa" target="_blank" rel="noopener noreferrer">
                 WhatsApp Us
-              </MagneticButton>
+              </Button>
             </div>
           </ScrollReveal>
         </div>

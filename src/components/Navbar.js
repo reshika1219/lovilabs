@@ -44,7 +44,7 @@ export default function Navbar() {
     <>
       <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''} ${isMobileOpen ? 'navbar--open' : ''}`}>
         <div className="navbar__inner">
-          <Link href="/" className="navbar__logo" data-cursor-hover>
+          <Link href="/" className="navbar__logo">
             <img
               src="/assets/ICON - FULL COLOR.png"
               alt="Lovi Labs"
@@ -61,7 +61,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={`navbar__link ${pathname === link.href ? 'navbar__link--active' : ''}`}
-                  data-cursor-hover
+                 
                 >
                   {link.label}
                   <span className="navbar__link-indicator" />
@@ -70,7 +70,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Link href="/contact" className="navbar__cta" data-cursor-hover>
+          <Link href="/contact" className="navbar__cta">
             Start Your Project
           </Link>
 
@@ -78,7 +78,7 @@ export default function Navbar() {
             className={`navbar__hamburger ${isMobileOpen ? 'navbar__hamburger--open' : ''}`}
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-label="Toggle menu"
-            data-cursor-hover
+           
           >
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
