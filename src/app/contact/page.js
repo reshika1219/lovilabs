@@ -62,6 +62,10 @@ export default function ContactPage() {
     <div className="page-content">
       {/* Hero */}
       <section className="contact-hero section">
+        <div className="contact-hero__bg">
+          <Image src="/assets/contact-bg.jpg" alt="Contact Lovi Labs" fill style={{ objectFit: 'cover', filter: 'grayscale(100%)' }} priority />
+          <div className="contact-hero__overlay"></div>
+        </div>
         <div className="container contact-hero__content">
           <ScrollReveal>
             <span className="overline">Contact</span>
@@ -141,11 +145,6 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </div>
-              </div>
-
-              {/* Decorative Image */}
-              <div className="contact-image-container" style={{ position: 'relative', width: '100%', aspectRatio: '1/1', marginTop: 'var(--space-2xl)', border: '1px solid var(--color-black)' }}>
-                <Image src="/assets/contact-bg.jpg" alt="Contact Lovi Labs" fill style={{ objectFit: 'cover', filter: 'grayscale(100%)' }} />
               </div>
             </ScrollReveal>
           </div>
