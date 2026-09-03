@@ -72,9 +72,6 @@ export default function AboutPage() {
             <ScrollReveal direction="left">
               <div className="about-mission__label">
                 <span className="overline">Our Mission</span>
-                <div className="about-mission__image-container">
-                  <Image src="/assets/about-hero.jpg" alt="Lovi Labs Team" fill style={{ objectFit: 'cover' }} />
-                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.2} direction="right">
