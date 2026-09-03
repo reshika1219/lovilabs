@@ -16,15 +16,15 @@
 .footer__inner {
   max-width: var(--max-width-wide);
   margin: 0 auto;
-  padding: var(--space-3xl) clamp(1.5rem, 4vw, 4rem) var(--space-lg);
+  padding: var(--space-xl) clamp(1.5rem, 4vw, 4rem) var(--space-md);
 }
 
 /* Top */
 .footer__top {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: var(--space-3xl);
-  padding-bottom: var(--space-2xl);
+  gap: var(--space-xl);
+  padding-bottom: var(--space-lg);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
