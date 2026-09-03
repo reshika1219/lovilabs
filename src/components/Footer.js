@@ -62,13 +62,10 @@ export default function Footer() {
           <div className="footer__brand">
             <Link href="/" className="footer__logo">
               <img
-                src="/assets/ICON - FULL COLOR.png"
+                src="/assets/LOVI LABS - WHITE.png"
                 alt="Lovi Labs"
                 className="footer__logo-icon"
               />
-              <span className="footer__logo-text">
-                LOVI <span className="footer__logo-text--accent">LABS</span>
-              </span>
             </Link>
             <p className="footer__tagline">
               Building digital experiences through Web, Marketing, Design & AI
