@@ -62,26 +62,29 @@ export default function ContactPage() {
     <div className="page-content">
       {/* Hero */}
       <section className="contact-hero section">
-        <div className="contact-hero__bg">
-          <Image src="/assets/contact-bg.jpg" alt="Contact Lovi Labs" fill style={{ objectFit: 'cover', filter: 'grayscale(100%)' }} priority />
-          <div className="contact-hero__overlay"></div>
-        </div>
-        <div className="container contact-hero__content">
-          <ScrollReveal>
-            <span className="overline">Contact</span>
-          </ScrollReveal>
-          <AnimatedText
-            text="Let's Build Something Together"
-            tag="h1"
-            type="words"
-            stagger={0.06}
-            delay={0.2}
-            className="contact-hero__title"
-          />
-          <ScrollReveal delay={0.4}>
-            <p className="contact-hero__subtitle">
-              Ready to start your project? Get in touch and we&apos;ll get back to you within 24 hours.
-            </p>
+        <div className="container contact-hero__grid">
+          <div className="contact-hero__content">
+            <ScrollReveal>
+              <span className="overline">Contact</span>
+            </ScrollReveal>
+            <AnimatedText
+              text="Let's Build Something Together"
+              tag="h1"
+              type="words"
+              stagger={0.06}
+              delay={0.2}
+              className="contact-hero__title"
+            />
+            <ScrollReveal delay={0.4}>
+              <p className="contact-hero__subtitle">
+                Ready to start your project? Get in touch and we&apos;ll get back to you within 24 hours.
+              </p>
+            </ScrollReveal>
+          </div>
+          <ScrollReveal delay={0.4} direction="right">
+            <div className="contact-hero__image-container">
+              <Image src="/assets/contact-bg.jpg" alt="Contact Lovi Labs" fill style={{ objectFit: 'cover', filter: 'grayscale(100%)' }} priority />
+            </div>
           </ScrollReveal>
         </div>
       </section>
