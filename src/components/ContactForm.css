@@ -66,7 +66,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--color-black);
+  background: var(--gradient-brand-horizontal);
   transition: width var(--duration-fast) ease;
 }
 
@@ -87,12 +87,12 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-white);
-  background: var(--color-black);
+  background: var(--gradient-brand);
   padding: 1rem 2.5rem;
-  border: 1px solid var(--color-black);
+  border: 1px solid transparent;
   border-radius: 0;
   overflow: hidden;
-  transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
+  transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
 }
 
 .contact-form__submit:hover:not(:disabled) {
@@ -117,3 +117,12 @@
   position: relative;
   z-index: 2;
 }
+
+@media (max-width: 480px) {
+  .contact-form__submit {
+    align-self: stretch;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
