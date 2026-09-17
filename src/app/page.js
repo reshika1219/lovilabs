@@ -65,43 +65,32 @@ export default function HomePage() {
       <section className="section-grid">
         <div className="section-grid__header">
           <h2 className="section-grid__title">Capabilities</h2>
-          <Link href="/services" className="section-grid__link">View All [↗]</Link>
+          <Link href="/services" className="section-grid__link">View All <span aria-hidden="true">→</span></Link>
         </div>
-        
-        <div className="grid-squares">
+
+        <div className="services-list">
           {SERVICES_PREVIEW.map((service) => (
-            <Link key={service.code} href="/services" className="square-card">
-              <div className="square-card__top">
-                <span className="square-card__code">[{service.code}]</span>
-                <span className="square-card__arrow">↗</span>
-              </div>
-              <div className="square-card__bottom">
-                <h3 className="square-card__title">{service.title}</h3>
-                <p className="square-card__desc">{service.desc}</p>
-              </div>
+            <Link key={service.code} href="/services" className="service-row">
+              <span className="service-row__num">{service.code}</span>
+              <h3 className="service-row__title">{service.title}</h3>
+              <p className="service-row__desc">{service.desc}</p>
+              <span className="service-row__arrow" aria-hidden="true">→</span>
             </Link>
           ))}
-          {/* Empty filler square to maintain grid */}
-          <div className="square-card square-card--empty"></div>
         </div>
       </section>
 
       {/* ============ PILLARS ============ */}
-      <section className="section-grid section-grid--dark">
-        <div className="section-grid__header">
+      <section className="section-pillars">
+        <div className="section-grid__header section-grid__header--bordered">
           <h2 className="section-grid__title">Our Approach</h2>
         </div>
-        
-        <div className="grid-squares">
+        <div className="pillars-grid">
           {PILLARS.map((pillar) => (
-            <div key={pillar.number} className="square-card square-card--dark">
-              <div className="square-card__top">
-                <span className="square-card__code">[{pillar.number}]</span>
-              </div>
-              <div className="square-card__bottom">
-                <h3 className="square-card__title">{pillar.title}</h3>
-                <p className="square-card__desc">{pillar.desc}</p>
-              </div>
+            <div key={pillar.number} className="pillar-card">
+              <span className="pillar-card__num">{pillar.number}</span>
+              <h3 className="pillar-card__title">{pillar.title}</h3>
+              <p className="pillar-card__desc">{pillar.desc}</p>
             </div>
           ))}
         </div>
