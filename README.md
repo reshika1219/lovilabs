@@ -10,9 +10,11 @@ Lovi Labs is a digital solutions company focused on transforming ideas into impa
 
 - **Framework**: Next.js 16 (App Router)
 - **Styling**: Vanilla CSS with custom design system
-- **Animations**: GSAP-inspired custom hooks + CSS transitions
+- **Animations**: GSAP + CSS transitions
 - **Fonts**: Inter & Outfit (via next/font)
-- **Deployment**: Vercel-ready
+- **Content**: Sanity CMS (`oyy58ymy`, `production` dataset)
+- **Deployment**: Vercel with GitHub CI
+- **Contact delivery**: Resend API
 
 ## 📦 Getting Started
 
@@ -28,14 +30,30 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## ✏️ Content Management
 
-The website uses Sanity for editable Team and Portfolio content. The frontend keeps its existing layout and styling, while published content is managed through Sanity Studio.
+The website uses Sanity for editable Team and Portfolio content. The frontend keeps its existing layout and styling, while published content is managed through the deployed Sanity Studio.
 
-1. Create a Sanity project at [sanity.io](https://www.sanity.io/).
-2. Copy `.env.example` to `.env.local` and add the project ID to both project ID variables.
-3. Run `npm run studio` to open the editor.
-4. Run `npm run dev` in another terminal to view the website.
+1. Open the [Lovi Labs Sanity Studio](https://lovilabs.sanity.studio).
+2. Sign in with the Sanity account that has access to the project.
+3. Manage **Team Member** and **Project** records.
+4. Mark records as visible and click **Publish**.
 
-Use `npm run studio:deploy` when you are ready to host the editor online. Team members are managed under **Team Member** and projects under **Project**. Only records marked **Show on website** are displayed.
+For local work, copy `.env.example` to `.env.local`, then run `npm run studio` and `npm run dev`. Only records marked **Show on website** are displayed.
+
+## 🚀 Deployment
+
+Pushes to `main` deploy through Vercel. GitHub Actions also runs `npm ci` and `npm run build` on pushes and pull requests.
+
+Configure these values in Vercel for Production and Preview deployments:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=oyy58ymy
+NEXT_PUBLIC_SANITY_DATASET=production
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=lovilabsco@gmail.com
+CONTACT_FROM_EMAIL=Lovi Labs <your_verified_domain_email>
+```
+
+Never commit `.env.local` or API keys.
 
 ## 🗂 Project Structure
 
