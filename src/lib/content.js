@@ -1,15 +1,8 @@
 import { sanityClient } from './sanity';
 
-const FALLBACK_TEAM = [
-  { name: 'Team Member', role: 'Role Title', initials: 'TM', linkedin: '#' },
-  { name: 'Team Member', role: 'Role Title', initials: 'TM', linkedin: '#' },
-  { name: 'Team Member', role: 'Role Title', initials: 'TM', linkedin: '#' },
-  { name: 'Team Member', role: 'Role Title', initials: 'TM', linkedin: '#' },
-];
-
 export async function getTeamMembers() {
   if (!sanityClient) {
-    return FALLBACK_TEAM;
+    return [];
   }
 
   try {
@@ -17,9 +10,9 @@ export async function getTeamMembers() {
       '*[_type == "teamMember" && active == true] | order(order asc) { name, role, initials, linkedin, image }'
     );
 
-    return members.length ? members : FALLBACK_TEAM;
+    return members;
   } catch {
-    return FALLBACK_TEAM;
+    return [];
   }
 }
 

@@ -79,7 +79,8 @@ export default function Navbar() {
             className={`navbar__hamburger ${isMobileOpen ? 'navbar__hamburger--open' : ''}`}
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-label="Toggle menu"
-           
+            aria-expanded={isMobileOpen}
+            aria-controls="mobile-navigation"
           >
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
@@ -89,7 +90,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`mobile-menu ${isMobileOpen ? 'mobile-menu--open' : ''}`}>
+      <div id="mobile-navigation" className={`mobile-menu ${isMobileOpen ? 'mobile-menu--open' : ''}`}>
         <div className="mobile-menu__bg" onClick={() => setIsMobileOpen(false)} />
         <div className="mobile-menu__content">
           <ul className="mobile-menu__links">
