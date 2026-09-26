@@ -19,27 +19,45 @@ export default function ContactForm() {
     email: '',
     service: '',
     message: '',
+    website: '',
   });
   const [status, setStatus] = useState('idle');
+  const [error, setError] = useState('');
   const [focused, setFocused] = useState('');
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    // Simulate send (replace with actual API call later)
-    setTimeout(() => {
+    setError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.error || 'Unable to send your message.');
+      }
+
       setStatus('sent');
-      setFormData({ name: '', email: '', service: '', message: '' });
+      setFormData({ name: '', email: '', service: '', message: '', website: '' });
       setTimeout(() => setStatus('idle'), 4000);
-    }, 1500);
+    } catch (submitError) {
+      setStatus('idle');
+      setError(submitError.message);
+    }
   };
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} id="contact-form">
+      <input type="text" name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" style={{ display: 'none' }} />
       <div className={`contact-form__group ${focused === 'name' ? 'contact-form__group--focused' : ''} ${formData.name ? 'contact-form__group--filled' : ''}`}>
         <label htmlFor="contact-name" className="contact-form__label">Your Name</label>
         <input
@@ -120,6 +138,7 @@ export default function ContactForm() {
           {status === 'sent' && 'Message Sent ✓'}
         </span>
       </button>
+      {error && <p className="contact-form__error" role="alert">{error}</p>}
     </form>
   );
 }
