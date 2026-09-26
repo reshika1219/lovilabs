@@ -19,6 +19,10 @@ export const metadata = {
   title: 'Lovi Labs — Digital Solutions | Web, Design, Marketing & AI',
   description: 'Lovi Labs is a digital solutions company transforming ideas into impactful digital experiences through modern websites, UI/UX design, social media marketing, and AI-powered solutions.',
   keywords: ['web development', 'UI/UX design', 'digital marketing', 'AI solutions', 'web applications', 'digital strategy', 'Lovi Labs'],
+  icons: {
+    icon: '/assets/ICON - FULL COLOR.png',
+    apple: '/assets/ICON - FULL COLOR.png',
+  },
   openGraph: {
     title: 'Lovi Labs — Digital Solutions',
     description: 'Building digital experiences through Web, Marketing, Design & AI',
