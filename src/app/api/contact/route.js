@@ -10,13 +10,22 @@ export async function POST(request) {
       return Response.json({ ok: true });
     }
 
-    if (
-      typeof name !== 'string' || name.trim().length < 2 || name.length > 100 ||
-      typeof email !== 'string' || !emailPattern.test(email) || email.length > 254 ||
-      typeof service !== 'string' || service.trim().length === 0 || service.length > 100 ||
-      typeof message !== 'string' || message.trim().length < 10 || message.length > 5000
-    ) {
-      return Response.json({ error: 'Please check the form fields and try again.' }, { status: 400 });
+    const errors = [];
+    if (typeof name !== 'string' || name.trim().length < 2 || name.length > 100) {
+      errors.push('enter your name');
+    }
+    if (typeof email !== 'string' || !emailPattern.test(email.trim()) || email.length > 254) {
+      errors.push('enter a valid email address');
+    }
+    if (typeof service !== 'string' || service.trim().length === 0 || service.length > 100) {
+      errors.push('select a service');
+    }
+    if (typeof message !== 'string' || message.trim().length < 10 || message.length > 5000) {
+      errors.push('write a message with at least 10 characters');
+    }
+
+    if (errors.length) {
+      return Response.json({ error: `Please ${errors.join(', ')}.` }, { status: 400 });
     }
 
     if (!process.env.RESEND_API_KEY || !process.env.CONTACT_TO_EMAIL || !process.env.CONTACT_FROM_EMAIL) {
