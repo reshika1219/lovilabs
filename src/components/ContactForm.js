@@ -27,6 +27,7 @@ export default function ContactForm() {
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setError('');
   };
 
   const handleSubmit = async (e) => {
