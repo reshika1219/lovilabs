@@ -67,6 +67,7 @@ export default function ContactForm() {
           name="name"
           className="contact-form__input"
           value={formData.name}
+          autoComplete="name"
           onChange={handleChange}
           onFocus={() => setFocused('name')}
           onBlur={() => setFocused('')}
@@ -83,6 +84,7 @@ export default function ContactForm() {
           name="email"
           className="contact-form__input"
           value={formData.email}
+          autoComplete="email"
           onChange={handleChange}
           onFocus={() => setFocused('email')}
           onBlur={() => setFocused('')}
@@ -140,6 +142,7 @@ export default function ContactForm() {
         </span>
       </button>
       {error && <p className="contact-form__error" role="alert">{error}</p>}
+      {status === 'sent' && <p className="contact-form__success" role="status">Your message has been sent successfully.</p>}
     </form>
   );
 }

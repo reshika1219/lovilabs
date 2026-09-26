@@ -49,7 +49,8 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
         <Navbar />
-        <main style={{ paddingTop: 'var(--nav-height)' }}>
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <main id="main-content" style={{ paddingTop: 'var(--nav-height)' }}>
           {children}
         </main>
         <Footer />

@@ -41,6 +41,17 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [isMobileOpen]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsMobileOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <>
       <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''} ${isMobileOpen ? 'navbar--open' : ''}`}>
@@ -90,7 +101,11 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div id="mobile-navigation" className={`mobile-menu ${isMobileOpen ? 'mobile-menu--open' : ''}`}>
+      <div
+        id="mobile-navigation"
+        className={`mobile-menu ${isMobileOpen ? 'mobile-menu--open' : ''}`}
+        aria-hidden={!isMobileOpen}
+      >
         <div className="mobile-menu__bg" onClick={() => setIsMobileOpen(false)} />
         <div className="mobile-menu__content">
           <ul className="mobile-menu__links">

@@ -118,6 +118,20 @@
   z-index: 2;
 }
 
+.contact-form__error,
+.contact-form__success {
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.contact-form__error {
+  color: #a30000;
+}
+
+.contact-form__success {
+  color: #166534;
+}
+
 @media (max-width: 480px) {
   .contact-form__submit {
     align-self: stretch;
