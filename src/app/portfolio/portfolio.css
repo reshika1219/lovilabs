@@ -86,3 +86,53 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* Published projects use the same editorial language as the portfolio fallback. */
+.portfolio-projects {
+  width: min(100%, 900px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.portfolio-project {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-black);
+  text-align: left;
+  background: var(--color-white);
+}
+
+.portfolio-project__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-project__category {
+  font-size: var(--text-caption);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+.portfolio-project__title {
+  font-size: var(--text-h3);
+  margin: var(--space-xs) 0;
+}
+
+.portfolio-project__summary {
+  font-size: var(--text-small);
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-project__link {
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+}
+
+@media (max-width: 640px) {
+  .portfolio-projects {
+    grid-template-columns: 1fr;
+  }
+}
