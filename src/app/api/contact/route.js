@@ -1,6 +1,16 @@
 import { Resend } from 'resend';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const allowedServices = new Set([
+  'Web Development',
+  'Web Applications',
+  'UI/UX Design',
+  'Social Media Marketing',
+  'AI Solutions',
+  'Digital Strategy',
+  'POS Systems',
+  'Other',
+]);
 const requestWindowMs = 15 * 60 * 1000;
 const requestLimit = 5;
 const requestLog = new Map();
@@ -56,7 +66,7 @@ export async function POST(request) {
     if (typeof email !== 'string' || !emailPattern.test(email.trim()) || email.length > 254) {
       errors.push('enter a valid email address');
     }
-    if (typeof service !== 'string' || service.trim().length === 0 || service.length > 100) {
+    if (typeof service !== 'string' || !allowedServices.has(service.trim())) {
       errors.push('select a service');
     }
     if (typeof message !== 'string' || message.trim().length < 10 || message.length > 5000) {

@@ -26,8 +26,9 @@
 /* Team Grid */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
   gap: var(--space-lg);
+  justify-content: center;
   margin-bottom: var(--space-3xl);
 }
 
@@ -158,7 +159,7 @@
 
 @media (max-width: 768px) {
   .team-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

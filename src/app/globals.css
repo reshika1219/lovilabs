@@ -131,6 +131,59 @@ a {
   text-decoration: none;
 }
 
+:focus-visible {
+  outline: 3px solid var(--color-cyan);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2000;
+  padding: 0.75rem 1rem;
+  color: var(--color-white);
+  background: var(--color-black);
+  transform: translateY(-200%);
+  transition: transform var(--duration-fast) ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.not-found__content {
+  max-width: 680px;
+}
+
+.not-found h1 {
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.not-found p {
+  max-width: 520px;
+  margin-bottom: var(--space-xl);
+}
+
+.not-found__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.not-found__link {
+  font-weight: var(--weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
 @media (hover: none) and (pointer: coarse) {
   a {
     cursor: pointer;
@@ -378,5 +431,19 @@ p {
 @media (max-width: 480px) {
   :root {
     --section-padding: clamp(2.5rem, 6vh, 4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
