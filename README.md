@@ -99,6 +99,7 @@ Copy `.env.example` to `.env.local`. The same values must be added to Vercel und
 |---|---:|---|---|
 | `NEXT_PUBLIC_SANITY_PROJECT_ID` | Yes | Website | Public Sanity project ID: `oyy58ymy` |
 | `NEXT_PUBLIC_SANITY_DATASET` | Yes | Website | Sanity dataset, normally `production` |
+| `NEXT_PUBLIC_SITE_URL` | Yes in production | Website SEO | Public site origin, for example `https://www.example.com` |
 | `SANITY_STUDIO_PROJECT_ID` | Yes for Studio | Sanity Studio | Project ID used by local Studio commands |
 | `SANITY_STUDIO_DATASET` | Yes for Studio | Sanity Studio | Dataset edited by Studio, normally `production` |
 | `RESEND_API_KEY` | Yes for email | Contact API | Private Resend API key; never expose or commit it |
@@ -106,6 +107,8 @@ Copy `.env.example` to `.env.local`. The same values must be added to Vercel und
 | `CONTACT_FROM_EMAIL` | Yes for email | Contact API | Verified sender, for example `Lovi Labs <hello@yourdomain.com>` |
 
 The two `NEXT_PUBLIC_*` values are safe to use in browser builds because they identify the Sanity project but do not grant write access. The Resend key is private and must only exist in local ignored files or Vercel environment variables.
+
+Set `NEXT_PUBLIC_SITE_URL` to the real production origin in Vercel. It is used to generate canonical metadata, `robots.txt`, and `sitemap.xml`.
 
 ## Sanity Content Management
 
