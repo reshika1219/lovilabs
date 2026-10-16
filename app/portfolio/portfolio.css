@@ -1,0 +1,138 @@
+/* ============================================
+   Portfolio Page Styles
+   ============================================ */
+
+.portfolio-hero {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+
+.portfolio-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-hero__title {
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Coming Soon */
+.portfolio-coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  max-width: 500px;
+}
+
+.portfolio-coming-soon__badge {
+  font-family: var(--font-heading);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--color-black);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-black);
+}
+
+.portfolio-coming-soon__text {
+  font-size: var(--text-body-lg);
+  color: var(--color-mid-gray);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.portfolio-coming-soon__loader {
+  display: flex;
+  gap: 8px;
+}
+
+.portfolio-coming-soon__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  background: var(--color-black);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.portfolio-coming-soon__dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.portfolio-coming-soon__dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.portfolio-coming-soon__cta {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Published projects use the same editorial language as the portfolio fallback. */
+.portfolio-projects {
+  width: min(100%, 900px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.portfolio-project {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-black);
+  text-align: left;
+  background: var(--color-white);
+}
+
+.portfolio-project__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-project__category {
+  font-size: var(--text-caption);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+.portfolio-project__title {
+  font-size: var(--text-h3);
+  margin: var(--space-xs) 0;
+}
+
+.portfolio-project__summary {
+  font-size: var(--text-small);
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-project__link {
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+}
+
+@media (max-width: 640px) {
+  .portfolio-projects {
+    grid-template-columns: 1fr;
+  }
+}

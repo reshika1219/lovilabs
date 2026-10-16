@@ -1,0 +1,53 @@
+.anim-text {
+  overflow: hidden;
+}
+
+.anim-text--words,
+.anim-text--chars {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Word animations */
+.anim-text__word-wrap {
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.anim-text__word {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.anim-text__word--visible {
+  transform: translateY(0);
+}
+
+/* Character animations */
+.anim-text__char {
+  display: inline-block;
+  transform: translateY(110%) rotateX(-80deg);
+  opacity: 0;
+  transition: transform 0.6s var(--ease-out-expo),
+              opacity 0.6s var(--ease-out-expo);
+}
+
+.anim-text__char--visible {
+  transform: translateY(0) rotateX(0deg);
+  opacity: 1;
+}
+
+/* Line animations */
+.anim-text__line {
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out-expo),
+              transform 0.8s var(--ease-out-expo);
+}
+
+.anim-text__line--visible {
+  opacity: 1;
+  transform: translateY(0);
+}

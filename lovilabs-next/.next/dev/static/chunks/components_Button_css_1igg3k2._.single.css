@@ -1,0 +1,104 @@
+/* [project]/components/Button.css [app-client] (css) */
+.btn {
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-medium);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) ease,
+              color var(--duration-fast) ease,
+              border-color var(--duration-fast) ease;
+  border-radius: 0;
+  text-decoration: none;
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn__text {
+  z-index: 2;
+  position: relative;
+}
+
+.btn--primary {
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  border: 1px solid #0000;
+}
+
+.btn--primary:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.btn--secondary {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn--outline {
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+  background-color: #0000;
+}
+
+.btn--outline:hover {
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  border-color: #0000;
+}
+
+.btn--ghost {
+  color: var(--color-black);
+  background-color: #0000;
+  border: 1px solid #0000;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn--ghost:hover {
+  opacity: .7;
+}
+
+.btn--white {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-white);
+}
+
+.btn--white:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn--small {
+  font-size: var(--text-caption);
+  padding: .5rem 1.25rem;
+}
+
+.btn--default {
+  font-size: var(--text-small);
+  padding: .75rem 1.75rem;
+}
+
+.btn--large {
+  font-size: var(--text-body);
+  padding: 1rem 2.5rem;
+}
+
+/*# sourceMappingURL=components_Button_css_1igg3k2._.single.css.map*/

@@ -1,0 +1,119 @@
+/* ============================================
+   Services Page Styles
+   ============================================ */
+
+.services-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-black);
+}
+
+.services-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.services-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.services-hero__content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+}
+
+.services-hero__title {
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+}
+
+.services-hero__subtitle {
+  font-size: var(--text-body-lg);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+/* Services Full Grid */
+.services-full-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--color-black);
+  border-left: 1px solid var(--color-black);
+}
+
+@media (max-width: 1200px) {
+  .services-full-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .services-full-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Process */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-2xl);
+  width: 100%;
+}
+
+.process-step {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  padding: var(--space-xl);
+  background: var(--color-white);
+  border: 1px solid var(--color-black);
+  position: relative;
+}
+
+.process-step__number {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-extrabold);
+  color: var(--color-black);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 80px;
+}
+
+.process-step__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--color-black);
+  margin-bottom: var(--space-2xs);
+}
+
+.process-step__desc {
+  font-size: var(--text-small);
+  color: var(--color-mid-gray);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-full-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
