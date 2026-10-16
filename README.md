@@ -7,8 +7,8 @@ This directory contains the Next.js migration of the Lovi Labs website. The migr
 Install dependencies and start the development server:
 
 ```bash
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the result.
@@ -20,10 +20,11 @@ Copy `.env.example` to `.env.local` and configure the Sanity and contact email v
 ### Available commands
 
 ```bash
-npm run build       # production build
-npm run start       # serve the production build
-npm run lint        # ESLint checks
-npm run studio      # start Sanity Studio
+bun run build          # production build
+bun run start          # serve the production build
+bun run lint           # ESLint checks
+bun run studio         # start Sanity Studio
+bun run studio:deploy  # deploy Sanity Studio
 ```
 
 The main routes are `/`, `/about`, `/services`, `/portfolio`, `/team`, and `/contact`.
