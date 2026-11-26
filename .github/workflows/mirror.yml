@@ -1,0 +1,27 @@
+name: Mirror to personal repo (Vercel)
+
+# Pushes main to the personal repo that Vercel deploys from.
+# Requires the MIRROR_TOKEN secret: a personal access token with write access
+# to the target repo (fine-grained: Contents read/write on that repo only).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: mirror
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    if: github.repository == 'lovilabs/lovilabs'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push main to personal repo
+        env:
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+        run: |
+          git push --force "https://x-access-token:${MIRROR_TOKEN}@github.com/reshika1219/lovilabs.git" HEAD:refs/heads/main
